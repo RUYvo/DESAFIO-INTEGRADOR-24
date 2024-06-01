@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div class="container m-6">
+<div class="container m-6">
         <!-- logo -->
         <div class="row mt-5">
             <div class="col-lg-8"> 
@@ -41,7 +41,7 @@
         </div>
 
     <!-- card principal -->
-    <div class="card rounded-4 mt-5">
+    <div class="card rounded-4 mt-5 ">
         <div class="card-body">
             <div class="row ">
                 <div class="col-lg-5 text-center">
@@ -79,16 +79,11 @@
         </div>
     </div>
    <!-- cards -->
-    <div class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <!-- Adicione mais botões conforme necessário para cada slide -->
-  </div>
-  </div>
+
+   <div class="container">
+   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item active" id="0">
                 <div class="row d-flex justify-content-between mt-5">
                     <div class="col-lg-2">
                         <div class="card rounded-4">
@@ -142,7 +137,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item ">
+            <div class="carousel-item" id="1">
                 <div class="row d-flex justify-content-between mt-5">
                     <div class="col-lg-2">
                         <div class="card rounded-4">
@@ -196,7 +191,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item ">
+            <div class="carousel-item " id="2">
                 <div class="row d-flex justify-content-between mt-5">
                     <div class="col-lg-2">
                         <div class="card rounded-4">
@@ -250,7 +245,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item ">
+            <div class="carousel-item " id="3">
                 <div class="row d-flex justify-content-between mt-5">
                     <div class="col-lg-2">
                         <div class="card rounded-4">
@@ -304,7 +299,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item ">
+            <div class="carousel-item " id="4">
                 <div class="row d-flex justify-content-between mt-5">
                     <div class="col-lg-2">
                         <div class="card rounded-4">
@@ -357,18 +352,21 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>              
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
     </div>
-    
+    <div class="row">
+        <div class="col-lg">
+            <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+        </div>
+    </div>
+    </div>
     <!-- cards de chuva -->
     <div class="row mt-5">
         <div class="col">

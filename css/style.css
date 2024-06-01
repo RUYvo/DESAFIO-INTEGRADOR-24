@@ -12,11 +12,12 @@ body{
     margin-left: 20%;
     margin-right: 20%;
 }
-
+.m-7{
+}
 .custom-rounded{
     border-radius: 50px;
 }
 
 .card:hover {
-    transform: scale(1.10);
+    transform: scale(1.05);
 }
