@@ -29,12 +29,7 @@
                 </div>
             
             </div>
-            <!-- barra de pesquisa -->
-            <!-- <div class="col-lg-4 py-4"> 
-                <input class="form-control rounded-pill " type="text" placeholder="Digite sua cidade">
-            </div>
-        </div> -->
-        
+                    
             <div class="input-group col-lg py-4 align-self-center">
                 <input class="form-control rounded-pill " type="text" placeholder="Digite sua cidade">
                 <span class="input-group-append ">
@@ -83,61 +78,297 @@
             </div>
         </div>
     </div>
-        
    <!-- cards -->
-   <div class="row d-flex justify-content-between mt-5">
-        <div class="col-lg-2">
-            <div class="card rounded-4">
-                <div class="card-body text-center ">
-                    <h5 class="card-title">Segunda</h5>
-                    <img class="img-fluid" src="./src/climas/rain.svg">
-                    <p class="card-text">Chuvoso</p>
-                    <p class="card-text">26º</p>
+    <div class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <!-- Adicione mais botões conforme necessário para cada slide -->
+  </div>
+  </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row d-flex justify-content-between mt-5">
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">00:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">01:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">02:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">03:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">04:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="row d-flex justify-content-between mt-5">
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">05:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">06:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">07:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">08:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">09:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="row d-flex justify-content-between mt-5">
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">10:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">11:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">12:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">13:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">14:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="row d-flex justify-content-between mt-5">
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">15:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">16:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">17:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">18:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">19:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="row d-flex justify-content-between mt-5">
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">20:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">21:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">22:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">23:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="card rounded-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">0:00</h5>
+                                <img class="img-fluid" src="./src/climas/rain.svg">
+                                <p class="card-text">Chuvoso</p>
+                                <p class="card-text">26º</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-2">
-            <div class="card rounded-4" >
-                <div class="card-body text-center">
-                    <h5 class="card-title">Terça</h5>
-                    <img class="img-fluid" src="./src/climas/rain.svg">
-                    <p class="card-text">Chuvoso</p>
-                    <p class="card-text">26º</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-2">
-            <div class="card rounded-4" >
-                <div class="card-body text-center">
-                    <h5 class="card-title">Quarta</h5>
-                    <img class="img-fluid" src="./src/climas/rain.svg">
-                    <p class="card-text">Chuvoso</p>
-                    <p class="card-text">26º</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-2">
-            <div class="card rounded-4" >
-                <div class="card-body text-center">
-                    <h5 class="card-title">Quinta</h5>
-                    <img class="img-fluid" src="./src/climas/rain.svg">
-                    <p class="card-text">Chuvoso</p>
-                    <p class="card-text">26º</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-2">
-            <div class="card rounded-4">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Sexta</h5>
-                    <img class="img-fluid" src="./src/climas/rain.svg">
-                    <p class="card-text">Chuvoso</p>
-                    <p class="card-text">26º</p>
-                </div>
-            </div>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
     </div>
-
+    
     <!-- cards de chuva -->
     <div class="row mt-5">
         <div class="col">

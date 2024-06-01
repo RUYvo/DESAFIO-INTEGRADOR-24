@@ -1,6 +1,7 @@
 *{
     font-family: poppins;
     padding: 0px;
+    transition: all 100ms;
 }
 
 body{
@@ -14,4 +15,8 @@ body{
 
 .custom-rounded{
     border-radius: 50px;
+}
+
+.card:hover {
+    transform: scale(1.10);
 }
