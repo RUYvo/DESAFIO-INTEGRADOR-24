@@ -1,3 +1,6 @@
+// @ts-nocheck
+// Vercel deve ignorar este arquivo e não tentar executá-lo no servidor
+
 if (typeof window !== 'undefined') {
     document.addEventListener("DOMContentLoaded", function() {
         const apiKey = '108f5895';
