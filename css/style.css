@@ -1,24 +1,112 @@
 * {
-    font-family: poppins;
-    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
     transition: all 100ms;
 }
 
 body {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
     background-repeat: no-repeat;
     background-size: cover;
     transition: background-image 0.5s ease;
 }
 
 .m-6 {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .custom-rounded {
     border-radius: 50px;
 }
 
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .card:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#weatherPieChart, #rainBarChart {
+    max-width: 400px;
+    max-height: 400px;
+    margin: 0 auto;
+}
+
+.chart-container {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+
+.chart-container canvas {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer p, .footer span {
+    margin: 0;
+    color: #6c757d;
+}
+
+input.form-control {
+    border: 1px solid #ced4da;
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 8px rgba(128, 189, 255, 0.5);
+}
+
+button.btn {
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button.btn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2, h3, p {
+    color: #343a40;
+}
+
+.card p {
+    margin: 10px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-5, .my-5 {
+    margin-top: 3rem !important;
+}
+
+.mb-5, .my-5 {
+    margin-bottom: 3rem !important;
+}
+
+.rounded-4 {
+    border-radius: 1rem !important;
 }

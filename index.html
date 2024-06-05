@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clima Tempo</title>
+    <title>Clima Now</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- Bootstrap -->
@@ -18,267 +18,131 @@
 
     <!-- HG Weather -->
     <script src="https://assets.hgbrasil.com/weather/js/hg-weather-1.0.js" type="text/javascript"></script>
+    <script src="./api/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const apiKey = '108f5895';
-        
-            const searchButton = document.getElementById('searchButton');
-            const cityInput = document.getElementById('cityInput');
-        
-            searchButton.addEventListener('click', function() {
-                const city = cityInput.value;
-                console.log('Searching for city:', city); // Log de depuração
-                fetch(`https://api.hgbrasil.com/weather?format=json-cors&key=${apiKey}&city_name=${city}`)
-                  .then(response => {
-                       console.log('Response status:', response.status); // Verificação de status da resposta
-                       if (!response.ok) throw new Error('Network response was not ok');
-                       return response.json();
-                   })
-                  .then(data => {
-                        console.log('Data received:', data); // Log de recebimento de dados
-                        if (data && data.results) {
-                            updateWeatherInfo(data.results);
-                        } else {
-                            console.error('City not found.'); // Erro caso a cidade não seja encontrada
-                            alert('Cidade não encontrada.');
-                        }
-                    })
-            });
-        
-            function updateWeather(city) {
-                console.log('Updating weather for city:', city); // Log de depuração
-                fetch(`https://api.hgbrasil.com/weather?format=json-cors&key=${apiKey}&city_name=${city}`)
-                  .then(response => {
-                       console.log('Response status:', response.status); // Verificação de status da resposta
-                       if (!response.ok) throw new Error('Network response was not ok');
-                       return response.json();
-                   })
-                  .then(data => {
-                        console.log('Data received:', data); // Log de recebimento de dados
-                        if (data && data.results) {
-                            updateWeatherInfo(data.results);
-                        } else {
-                            console.error('City not found.'); // Erro caso a cidade não seja encontrada
-                            alert('Cidade não encontrada.');
-                        }
-                    })
-            }
-            updateWeather('Guarapuava');
-        
-            function updateWeatherInfo(weather) {
-                console.log('Weather Info:', weather); // Debug console log
-                try {
-                    if (document.getElementById('city')) document.getElementById('city').textContent = weather.city;
-                    if (document.getElementById('temp')) document.getElementById('temp').textContent = weather.temp + 'º';
-                    if (document.getElementById('description')) document.getElementById('description').textContent = weather.description;
-                    if (document.getElementById('sunrise')) document.getElementById('sunrise').textContent = weather.sunrise;
-                    if (document.getElementById('sunset')) document.getElementById('sunset').textContent = weather.sunset;
-                    if (document.getElementById('weatherImage')) document.getElementById('weatherImage').src = `https://assets.hgbrasil.com/weather/icons/conditions/${weather.condition_slug}.svg`;
-                    if (document.getElementById('weatherImage')) document.getElementById('weatherImage').alt = `Imagem do clima: ${weather.description}`;
-                    if (document.getElementById('moonPhaseImage')) document.getElementById('moonPhaseImage').src = `https://assets.hgbrasil.com/weather/icons/moon/${weather.moon_phase}.png`;
-                    if (document.getElementById('time')) document.getElementById('time').textContent = weather.time;
-                    if (document.getElementById('date')) document.getElementById('date').textContent = weather.date;
-                    if (document.getElementById('humidity')) document.getElementById('humidity').textContent = weather.humidity + '%';
-                    if (document.getElementById('cloudiness')) document.getElementById('cloudiness').textContent = weather.cloudiness + '%';
-                    if (document.getElementById('rain')) document.getElementById('rain').textContent = weather.rain + ' mm';
-                    if (document.getElementById('wind_speedy')) document.getElementById('wind_speedy').textContent = weather.wind_speedy;
-                    if (document.getElementById('wind_direction')) document.getElementById('wind_direction').textContent = weather.wind_direction + '°';
-                    if (document.getElementById('wind_cardinal')) document.getElementById('wind_cardinal').textContent = weather.wind_cardinal;
-                    if (document.getElementById('moon_phase')) document.getElementById('moon_phase').textContent = weather.moon_phase;
-                    if (document.getElementById('condition_slug')) document.getElementById('condition_slug').textContent = weather.condition_slug;
-            
-                    const forecastCards = weather.forecast.map((day, index) => {
-                        if (index >= 5) return ''; 
-                        console.log('Forecast Day:', day); // Debug console log for each forecast day
-                        return `
-                        <div style="width: 300px;">
-                            <div class="card rounded-4 h-100">
-                                <div class="card-body text-center">
-                                    <p class="card-title">${day.weekday}</p>
-                                    <p class="card-text">${day.date}</p>
-                                    <p class="card-text">Máx: ${day.max}ºC</p>
-                                    <p class="card-text">Mín: ${day.min}ºC</p>
-                                    <p class="card-text">Chuva: ${day.rain_probability}%</p>
+    <div class="container m-6">
+        <!-- logo -->
+        <div class="row mt-5">
+            <div class="col-lg-4">
+                <div>
+                    <p class="card rounded-4 mt-5 h1 p-4 text-center">Clima Now</p>
+                </div>
+            </div>
+            <div class="input-group col-lg py-4 align-self-center">
+                <input class="form-control rounded-pill" id="cityInput" type="text" placeholder="Digite sua cidade">
+                <span class="input-group-append">
+                    <button class="btn bg-white text-dark rounded-circle align-self-center mx-2" type="button" id="searchButton" aria-label="Buscar cidade">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <!-- card principal -->
+        <div class="card rounded-4 mt-5">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-5 text-center">
+                        <img class="img-fluid w-50" id="weatherImage" src="" alt="">
+                    </div>
+                    <div class="col-lg-5 align-self-center">
+                        <p class="h2 text-center" id="city"></p>
+                        <div class="row">
+                            <div class="col-lg h1 text-center align-self-center">
+                                <p id="temp"></p>
+                            </div>
+                            <div class="col-lg text-center align-self-center">
+                                <p id="description"></p>
+                            </div>
+                            <div class="col-lg">
+                                <div class="row text-end">
+                                    <p>Amanhecer: <span id="sunrise">--:--</span></p>
+                                </div>
+                                <div class="row text-end">
+                                    <p>Entardecer: <span id="sunset">--:--</span></p>
                                 </div>
                             </div>
-                        </div>`;
-                    }).join('');
-            
-                    updateBackground(weather);
-                    if (document.getElementById('forecast-cards')) document.getElementById('forecast-cards').innerHTML = forecastCards;
-                } catch (error) {
-                    console.error('Error updating weather info:', error); // Tratamento de erros
-                }
-            }
-
-            function updateBackground(weather) {
-                const backgrounds = {
-                    'rain':'./src/ChuvaBackground.png',
-                    'clear_day':'./src/EnsolaradoBackground.jpg',
-                    'clear_night':'./src/NoiteLimpaBackground.png',
-                    'hail':'./src/GranizoBackground.jpg',
-                    'snow':'./src/NeveBackground.jpg',
-                    'cloud':'./src/NubladoBackground.jpg',
-                    'cloudly_day':'./src/NubladoBackground.jpg',
-                    'cloudly_night':'./src/NoiteNubladaBackground.jpg',
-                    'storm':'./src/TempestadeBackground.png'
-                };
-
-                let condition_slug = weather.condition_slug;
-                console.log('Background Condition Slug:', condition_slug); // Debug console log
-                if (backgrounds.hasOwnProperty(condition_slug)) {
-                    document.body.style.backgroundImage = `url(${backgrounds[condition_slug]})`;
-                } else {
-                    console.error('Invalid condition slug:', condition_slug); 
-                }
-            }
-        });
-    </script>
-    
-    
-<div class="container m-6">
-    <!-- logo -->
-    <div class="row mt-5">
-        <div class="col-lg-8">
-            <div>
-                <p class="h2 p-4">Clima Tempo</p>
-            </div>
-        </div>
-        <div class="input-group col-lg py-4 align-self-center">
-            <input class="form-control rounded-pill" id="cityInput" type="text" placeholder="Digite sua cidade">
-            <span class="input-group-append">
-                <button class="btn bg-white text-dark rounded-circle align-self-center mx-2" type="button" id="searchButton" aria-label="Buscar cidade">
-                    <i class="bi bi-search"></i>
-                </button>
-            </span>
-        </div>
-    </div>
-
-    <!-- card principal -->
-    <div class="card rounded-4 mt-5">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-5 text-center">
-                    <img class="img-fluid w-50" id="weatherImage" src="" alt="">
-                </div>
-                <div class="col-lg-5 align-self-center">
-                    <p class="h2 text-center" id="city"></p>
-                    <div class="row">
-                        <div class="col-lg h1 text-center align-self-center">
-                            <p id="temp"></p>
-                        </div>
-                        <div class="col-lg text-center align-self-center">
-                            <p id="description"></p>
-                        </div>
-                        <div class="col-lg">
-                            <div class="row text-end">
-                                <p>Amanhecer: <span id="sunrise">--:--</span></p>
-                            </div>
-                            <div class="row text-end">
-                                <p>Entardecer: <span id="sunset">--:--</span></p>
-                            </div>
-                        </div>
-                        <div class="col-lg">
-                            <div class="row text-end">
-                                <p>Hora:</p>
-                                <p><span id="time">--:--</span></p>
-                            </div>
-                            <div class="row text-end">
-                                <p>Data:</p>
-                                <p><span id="date">--:--</span></p>
+                            <div class="col-lg">
+                                <div class="row text-end">
+                                    <p>Hora:</p>
+                                    <p><span id="time">--:--</span></p>
+                                </div>
+                                <div class="row text-end">
+                                    <p>Data:</p>
+                                    <p><span id="date">--:--</span></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- cards de chuva -->
-    <div class="row mt-5">
-        <div class="col">
-            <div class="card rounded-4 p-2">
-                <div class="card-body d-flex ">
-                    <div class="col" id="city">
-                        <p class="text-center">Volume de chuva <br>(ultima hora)</br></p>
+        <!-- cards de chuva -->
+        <div class="row mt-5">
+            <div class="col-lg">
+                <div class="card rounded-4 p-4 chart-container">
+                    <div class="card-body">
+                        <p class="text-center">Volume de chuva (última hora)</p>
                         <div class="row">
-                            <div class="col text-end h2">
+                            <div class="col text-center h2">
                                 <p><span id="rain">--:--</span></p>
                             </div>
-                            <div class="col align-self-center">
-                                <p>mm</p>
-                            </div>
                         </div>
                     </div>
+                    <canvas id="rainBarChart"></canvas>
                 </div>
             </div>
-        </div>
-    
-        <div class="col-lg">
-            <div class="card rounded-4 p-4">
-                <div class="card-body d-flex ">
-                    <div class="col">
-                        <p class="text-center">Umidade</p>
+
+            <div class="col-lg">
+                <div class="card rounded-4 p-4 chart-container">
+                    <div class="card-body">
                         <div class="row">
-                            <div class="col text-end h2">
-                                <p id="humidity">--:--</p>
+                            <div class="col">
+                                <p class="text-center">Umidade</p>
+                                <div class="col text-center h2">
+                                    <p id="humidity">--:--</p>
+                                </div>
                             </div>
-                            <div class="col align-self-center">
-                                <p>%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <p class="text-center">Nebulosidade</p>
-                        <div class="row align-self-center">
-                            <div class="col text-end h2">
-                                <p id="cloudiness">--:--</p>
-                            </div>
-                            <div class="col align-self-center">
-                                <p>%</p>
+                            <div class="col">
+                                <p class="text-center">Nebulosidade</p>
+                                <div class="col text-center h2">
+                                    <p id="cloudiness">--:--</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <canvas id="weatherPieChart"></canvas>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Cards fases da lua e vento -->
-    <div class="row mt-5 mb-5">
-        <div class="col-lg-3">
-            <div class="card rounded-4 p-3">
-                <p  class="text-center">Fase da Lua</p>
-                <div class="row align-self-center">
-                    <img class="img-fluid w-200" id="moonPhaseImage" src="" alt="">
+        <!-- Cards fases da lua e vento -->
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-3">
+                <div class="card rounded-4 p-3">
+                    <p class="text-center">Fase da Lua</p>
+                    <div class="row align-self-center">
+                        <img class="img-fluid w-200" id="moonPhaseImage" src="" alt="">
+                    </div>
                 </div>
             </div>
-        </div>
-    
-        <div class="col">
-            <div class="card rounded-4 p-3">
-                <div class="card-body d-flex ">
-                    <div class="col">
-                        <p class="text-center">Velocidade do Vento</p>
-                        <div class="row">
+            <div class="col-lg">
+                <div class="card rounded-4 p-3">
+                    <div class="card-body d-flex">
+                        <div class="col">
+                            <p class="text-center">Velocidade do Vento</p>
                             <div class="col text-center h2">
                                 <p id="wind_speedy">--:--</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <p class="text-center">Direção do Vento</p>
-                        <div class="row align-self-center">
+                        <div class="col">
+                            <p class="text-center">Direção do Vento</p>
                             <div class="col text-center h2">
                                 <p id="wind_direction">--:--</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <p class="text-center">Posição do Vento</p>
-                        <div class="row align-self-center">
+                        <div class="col">
+                            <p class="text-center">Posição do Vento</p>
                             <div class="col text-center h2">
                                 <p id="wind_cardinal">--:--</p>
                             </div>
@@ -288,12 +152,16 @@
             </div>
         </div>
     </div>
-    </div>
-    <!-- cards -->
+    <!-- Previsão dos próximos 5 dias -->
     <div class="container">
+        <div class="col-lg-12">
+            <div>
+                <p class="card rounded-4 mt-5 h1 p-4 text-center">Previsão dos próximos 5 Dias</p>
+            </div>
+        </div>
         <div class="d-flex justify-content-around mt-5" id="forecast-cards"></div>
     </div>
-    <footer class="footer mt-3 py-3 bg-light text-center mt-5">
+    <footer class="footer mt-3 py-3 text-center">
         <div class="container">
             <p>Desenvolvido por Equipe NoName</p>
             <span class="text-muted">Todos os direitos reservados ©</span>
